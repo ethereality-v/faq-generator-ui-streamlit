@@ -13,6 +13,9 @@ from collections import Counter
 import PyPDF2
 from textstat.textstat import textstat
 
+import nltk
+    nltk.download('punkt_tab')
+
 class AssignmentFAQGenerator:
     def __init__(self):
         # Download required NLTK data if missing
@@ -240,3 +243,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
