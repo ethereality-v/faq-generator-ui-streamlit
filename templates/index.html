@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAQ Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+        textarea { width: 100%; height: 150px; margin-top: 10px; }
+        .btn { background: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; }
+        .btn:hover { background: #45a049; }
+        .output { background: white; padding: 10px; margin-top: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>FAQ Generator</h1>
+    <form method="POST">
+        <label>Paste Assignment Text:</label>
+        <textarea name="input_text"></textarea>
+        <br><br>
+        <button class="btn" type="submit">Generate FAQs</button>
+    </form>
+
+    {% if result %}
+    <div class="output">
+        <h2>Generated FAQs:</h2>
+        <pre>{{ result }}</pre>
+    </div>
+    {% endif %}
+</body>
+<form method="POST" enctype="multipart/form-data">
+    <label>Paste Assignment Text:</label>
+    <textarea name="input_text"></textarea>
+    <br><br>
+    <label>Or upload a .pdf / .txt file:</label>
+    <input type="file" name="file" accept=".pdf,.txt" />
+    <br><br>
+    <button class="btn" type="submit">Generate FAQs</button>
+</form>
+</html>
