@@ -13,9 +13,6 @@ from collections import Counter
 import PyPDF2
 from textstat.textstat import textstat
 
-import nltk
-    nltk.download('punkt_tab')
-
 class AssignmentFAQGenerator:
     def __init__(self):
         # Download required NLTK data if missing
@@ -23,6 +20,7 @@ class AssignmentFAQGenerator:
             nltk.data.find('tokenizers/punkt')
         except LookupError:
             nltk.download('punkt')
+            nltk.download('punkt_tab')
         try:
             nltk.data.find('corpora/stopwords')
         except LookupError:
@@ -31,7 +29,8 @@ class AssignmentFAQGenerator:
             nltk.data.find('taggers/averaged_perceptron_tagger')
         except LookupError:
             nltk.download('averaged_perceptron_tagger')
-
+            nltk.download('averaged_perceptron_tagger_eng')
+            
         # Stop words
         self.stop_words = set(stopwords.words('english'))
 
@@ -243,4 +242,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
